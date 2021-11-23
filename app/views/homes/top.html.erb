@@ -1,5 +1,8 @@
-<body>
-      <main>
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+  <% end %>
         <p id="notice"></p>
         <div class="container">
   <div class="row">
@@ -20,5 +23,3 @@
     </div>
   </div>
 </div>
-</main>
-</body>

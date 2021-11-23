@@ -10,7 +10,7 @@
         <div class="col-md-3">
           
         <h2>User info</h2>
-          <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          <%= attachment_image_tag current_user, :profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg" %>
              <table class="table">
                 <tr>
                 <th>name</th><th><%= current_user.name %></th>
@@ -59,7 +59,7 @@
               <tr>
                  <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" , size: "40x40"%></td>
                  <td><%= user.name %></td>
-                 <td><%= link_to(user_path(user.id)) do %>
+                 <td><%= link_to(users_path(user.id)) do %>
                       Show
                     <% end %>
                 </td>
