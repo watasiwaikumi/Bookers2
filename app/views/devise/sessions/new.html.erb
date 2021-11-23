@@ -1,14 +1,15 @@
  <h2>Log in</h2>
 
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+  
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "current_user.name" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current_password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>

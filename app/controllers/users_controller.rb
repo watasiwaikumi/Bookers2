@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+ before_action :authenticate_user!
   def new
     @users = User.new
   end
@@ -17,7 +17,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    redirect_to users_path
+    if @user. == current_user
+            render "edit"
+    else
+            redirect_to users_path
+    end
   end
 
   def destroy
