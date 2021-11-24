@@ -60,8 +60,10 @@
 
     <% @user.books.each do |book| %>
     <tr>
-        <td><%= link_to(book_path(book.id)) do %>
+        <td><%= link_to(user_path(@user.id)) do %>
             <%= attachment_image_tag @user, :profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg" , size: "40x40"%></br>
+            <% end %>
+            <%= link_to(book_path(book.id)) do %>
             <%=book.title %>
             <% end %>
        </td>

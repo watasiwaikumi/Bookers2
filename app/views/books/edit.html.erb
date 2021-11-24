@@ -9,9 +9,14 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		  <h1>Editing Book</h1>
+  		  <% if @book.errors.any? %>
+                 <%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:
+                 <% @book.errors.full_messages.each do |message| %>
+                 <%= message %>
+                 <% end %>
+             <% end %>
+             
   		    <%= form_with model:@book,local:true do |f| %>
-
-  		    <form action="/books/31381" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="sZrXRrwbzp8A1LmdH2HQH8p4fMBZtOHMYMAb+HaLRcgssQYUUXPGegqSbdkzr7NSWkFSRBrDoCjMzb6dOIQVCg==">
 
             <div class="form-group">
               <label for="book_title">Title</label>
@@ -28,7 +33,6 @@
             </div>
             <% end %>
 
-          </form>
         <%= link_to "Show" ,book_path(@book.id)%>
         |
         <%= link_to "Back" ,books_path%>
